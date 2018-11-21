@@ -15,19 +15,10 @@ public class CodeWordChecker implements StringChecker
         this.max = 20;
         this.not = not;
     }
+    @Override
     public boolean isValid(String str1)
     {
-        boolean contains = false;
-        for (int i = 0; i < str1.length();i++)
-        {
-            String checking = str1.substring(i,i+not.length());
-            if(checking.equals(str1))
-            {
-                contains = true;
-                break;
-            }
-        }
-        if (contains == false && str1.length() > min && str1.length() < max)
+        if (str1.indexOf(this.not) == -1 && str1.length() >= min && str1.length() <= max)
         {
             return true;
         }
